@@ -25,7 +25,7 @@ public class EndlessRunner : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
             {
                 animator.Play("jump");
-                velocity = new Vector3(0, 400, 0);
+                velocity = new Vector3(0, 800, 0);
                 gravity = new Vector3(0, -400, 0);
                 myState = State.airborne;
             }
@@ -42,6 +42,7 @@ public class EndlessRunner : MonoBehaviour
                 gravity = Vector3.zero;
                 animator.Play("run");
                 Jumper.transform.position = new Vector3(Jumper.transform.position.x, y0, 0);
+                myState = State.grounded;
             }
         }
     }
