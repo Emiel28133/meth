@@ -25,8 +25,12 @@ public class EndlessRunner : MonoBehaviour
             {
                 animator.Play("jump");
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 velocity = new Vector3(0, 5, 0); // Initial jump velocity
                 gravity = new Vector3(0, -4, 0);  // Downward acceleration
+=======
+                velocity = new Vector3(0, 8f, 0);
+>>>>>>> Stashed changes
 =======
                 velocity = new Vector3(0, 8f, 0);
 >>>>>>> Stashed changes
@@ -37,9 +41,14 @@ public class EndlessRunner : MonoBehaviour
         if (myState == State.airborne)
         {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             velocity += gravity * Time.deltaTime; // Apply gravity to velocity
             Jumper.transform.position += velocity * Time.deltaTime; // Add velocity to position
 
+=======
+            velocity += gravity * Time.deltaTime;
+            Jumper.transform.position += velocity * Time.deltaTime;
+>>>>>>> Stashed changes
 =======
             velocity += gravity * Time.deltaTime;
             Jumper.transform.position += velocity * Time.deltaTime;
@@ -55,8 +64,12 @@ public class EndlessRunner : MonoBehaviour
         }
     }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 }
+=======
+}
+>>>>>>> Stashed changes
 =======
 }
 >>>>>>> Stashed changes
