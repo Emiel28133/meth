@@ -25,19 +25,20 @@ public class EndlessRunner : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
             {
                 animator.Play("jump");
-                velocity = new Vector3(0, 800, 0);
-                gravity = new Vector3(0, -400, 0);
+                velocity = new Vector3(0, 5, 0); // Initial jump velocity
+                gravity = new Vector3(0, -4, 0);  // Downward acceleration
                 myState = State.airborne;
             }
         }
 
         if (myState == State.airborne)
         {
+            velocity += gravity * Time.deltaTime; // Apply gravity to velocity
+            Jumper.transform.position += velocity * Time.deltaTime; // Add velocity to position
 
-            velocity += gravity * Time.deltaTime;
-            Jumper.transform.position = velocity * Time.deltaTime;
-            if(Jumper.transform.position.y <= y0)
+            if (Jumper.transform.position.y <= y0)
             {
+                // Reset position and state when grounded
                 velocity = Vector3.zero;
                 gravity = Vector3.zero;
                 animator.Play("run");
@@ -46,4 +47,5 @@ public class EndlessRunner : MonoBehaviour
             }
         }
     }
+
 }
