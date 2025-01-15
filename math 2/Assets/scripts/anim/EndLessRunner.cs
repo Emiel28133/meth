@@ -9,8 +9,10 @@ public class EndlessRunner : MonoBehaviour
     enum State { grounded, airborne }
     State myState = State.grounded;
     Vector3 velocity = Vector3.zero;
-    Vector3 gravity = new Vector3(0, -9.8f, 0);
+    Vector3 gravity = new Vector3(0, 0f, 0);
     float y0;
+
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -24,7 +26,8 @@ public class EndlessRunner : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
             {
                 animator.Play("jump");
-                velocity = new Vector3(0, 8f, 0);
+                velocity = new Vector3(0, 5f, 0);
+                gravity = new Vector3(0, -10f, 0);
                 myState = State.airborne;
             }
         }
@@ -38,7 +41,10 @@ public class EndlessRunner : MonoBehaviour
                 velocity = Vector3.zero;
                 animator.Play("run");
                 Jumper.transform.position = new Vector3(Jumper.transform.position.x, y0, 0);
+
                 myState = State.grounded;
+                gravity = new Vector3(0, 0f, 0);
+
             }
         }
     }
